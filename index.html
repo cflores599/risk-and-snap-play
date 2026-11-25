@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#10262e" />
+    <title>Risk &amp; Snap</title>
+    <style>:root{--u:1px;--bg:#10262e;--wall:#e8dfc8;--ink:#10262e;--player:#ffc93c;--player-deep:#b98a12;--danger:#ff4d3d;--goal:#3fe0c5;--display:Impact, Haettenschweiler, "Arial Narrow Bold", "Roboto Condensed", sans-serif-condensed, sans-serif;--ui:system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;--touch:clamp(58px, 17vmin, 92px);--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark}*{box-sizing:border-box}[hidden]{display:none!important}html,body{overscroll-behavior:none;height:100%;color:var(--wall);font-family:var(--ui);-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;touch-action:none;background:#0a1a20;margin:0;overflow:hidden}#stage{width:calc(var(--u) * 960);height:calc(var(--u) * 540);background:var(--bg);position:absolute;top:50%;left:50%;overflow:hidden;transform:translate(-50%,-50%)}#game{width:100%;height:100%;display:block}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;border:0;margin:0}button:focus-visible{outline:calc(var(--u) * 3) solid var(--goal);outline-offset:calc(var(--u) * 3)}#hud{top:0;right:calc(var(--u) * 8);height:calc(var(--u) * 30);align-items:center;gap:calc(var(--u) * 4);display:flex;position:absolute}.hud-btn{width:max(calc(var(--u) * 26), 26px);height:max(calc(var(--u) * 26), 26px);color:var(--ink);background:0 0;border-radius:3px;place-items:center;padding:0;display:grid}.hud-btn:hover{background:#10262e1f}.hud-btn svg{fill:none;stroke:currentColor;stroke-width:2.2px;stroke-linecap:round;stroke-linejoin:round;width:72%;height:72%}#btn-mute .off,#btn-mute[aria-pressed=true] .on{display:none}#btn-mute[aria-pressed=true] .off{display:inline}#btn-skip{height:max(calc(var(--u) * 22), 24px);padding:0 max(calc(var(--u) * 9), 9px);margin-right:calc(var(--u) * 4);background:var(--ink);color:var(--wall);font-size:max(calc(var(--u) * 12), 11px);white-space:nowrap;border-radius:3px;font-weight:700}#btn-skip small{color:var(--ink);background:var(--player);border-radius:2px;margin-left:.5em;padding:.05em .4em;font-size:.82em}.overlay{justify-content:center;align-items:center;gap:calc(var(--u) * 14);padding:calc(var(--u) * 24);text-align:center;background:#10262ee0;flex-direction:column;display:flex;position:absolute;top:0;bottom:0;left:0;right:0}.logo{font-family:var(--display);font-weight:400;font-size:calc(var(--u) * 118);letter-spacing:.01em;text-transform:uppercase;color:var(--wall);white-space:nowrap;margin:0;line-height:.95}.logo span{display:inline-block}.logo .fallen{margin:0 .035em;animation:.55s cubic-bezier(.5,0,.9,.4) .45s backwards give-way;transform:translateY(.24em)rotate(8deg)}@keyframes give-way{0%{transform:none}}.tagline{margin:0 0 calc(var(--u) * 12);font-size:calc(var(--u) * 20);opacity:.8;font-weight:500}.primary{min-width:calc(var(--u) * 220);padding:calc(var(--u) * 13) calc(var(--u) * 30);background:var(--player);color:var(--ink);font-size:max(calc(var(--u) * 22), 15px);box-shadow:0 calc(var(--u) * 5) 0 var(--player-deep);border-radius:3px;font-weight:800;transition:transform 60ms,box-shadow 60ms}.primary:active{transform:translateY(calc(var(--u) * 4));box-shadow:0 calc(var(--u) * 1) 0 var(--player-deep)}.link{padding:calc(var(--u) * 6) calc(var(--u) * 10);font-size:max(calc(var(--u) * 15), 12px);text-underline-offset:.2em;opacity:.8;background:0 0;text-decoration:underline}.link:hover{opacity:1}.controls{margin:calc(var(--u) * 10) 0 0;max-width:46ch;font-size:max(calc(var(--u) * 14), 11px);opacity:.6;line-height:1.5}.end-title{font-family:var(--display);font-weight:400;font-size:calc(var(--u) * 84);color:var(--goal);margin:0;line-height:1}.end-stats{margin:0 0 calc(var(--u) * 12);font-size:calc(var(--u) * 22);font-weight:500}#toast{left:50%;bottom:calc(var(--u) * 100);padding:calc(var(--u) * 8) calc(var(--u) * 14);background:var(--wall);color:var(--ink);font-size:max(calc(var(--u) * 14), 12px);white-space:nowrap;pointer-events:none;border-radius:3px;font-weight:600;position:absolute;transform:translate(-50%)}#touch{padding:0 max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));pointer-events:none;justify-content:space-between;align-items:flex-end;display:flex;position:fixed;top:auto;bottom:0;left:0;right:0}#touch>*{pointer-events:auto;touch-action:none}#t-move{width:calc(var(--touch) * 2.2);height:var(--touch);border-radius:6px;display:flex;overflow:hidden}#t-move i,#t-jump{color:var(--wall);background:#10262e99;border:2px solid #e8dfc899;place-items:center;display:grid}#t-move i{pointer-events:none;flex:1}#t-move i+i{border-left:0}#t-jump{width:var(--touch);height:var(--touch);border-radius:50%;padding:0}#t-move[data-dir=left] i:first-child,#t-move[data-dir=right] i:last-child,#t-jump[data-on]{color:var(--ink);background:#ffc93ccc}#touch svg{fill:currentColor;pointer-events:none;width:38%;height:38%}@media (prefers-reduced-motion:reduce){.logo .fallen{animation:none}}</style>
+    <script type="module" crossorigin src="./assets/index-C9LiISeW.js"></script>
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="game"></canvas>
+
+      <div id="hud" hidden>
+        <button id="btn-skip" type="button" tabindex="-1" hidden>Skip level<small>Ad</small></button>
+        <button id="btn-restart" class="hud-btn" type="button" tabindex="-1" title="Retry (R)" aria-label="Retry level">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12a7 7 0 1 1-2.2-5.1" /><path d="M19 4v4h-4" /></svg>
+        </button>
+        <button id="btn-mute" class="hud-btn" type="button" tabindex="-1" title="Sound (M)" aria-label="Mute sound" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5z" />
+            <path class="on" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11" />
+            <path class="off" d="M16 9.5l5 5M21 9.5l-5 5" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="title" class="overlay" hidden>
+        <h1 class="logo" aria-label="Risk and Snap">
+          <span aria-hidden="true">R</span><span class="fallen" aria-hidden="true">i</span><span aria-hidden="true">sk &amp; Snap</span>
+        </h1>
+        <p class="tagline">Every room is lying to you.</p>
+        <button id="btn-play" class="primary" type="button">Play</button>
+        <button id="btn-startover" class="link" type="button" hidden>Start over from level 1</button>
+        <p id="controls" class="controls">Move with the arrow keys or A and D. Jump with space. Press R to retry a room.</p>
+      </div>
+
+      <div id="end" class="overlay" hidden>
+        <h2 class="end-title">You made it out.</h2>
+        <p id="end-stats" class="end-stats"></p>
+        <button id="btn-again" class="primary" type="button">Play again</button>
+      </div>
+
+      <div id="toast" role="status" hidden></div>
+    </div>
+
+    <div id="touch" hidden>
+      <div id="t-move" role="group" aria-label="Move left or right">
+        <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 4 6 12l10 8z" /></svg></i>
+        <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l10 8-10 8z" /></svg></i>
+      </div>
+      <button id="t-jump" type="button" tabindex="-1" aria-label="Jump">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16 12 6l8 10z" /></svg>
+      </button>
+    </div>
+
+  </body>
+</html>
